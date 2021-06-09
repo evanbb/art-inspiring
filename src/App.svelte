@@ -1,30 +1,35 @@
 <script lang="ts">
-	export let name: string;
+  import Modal from "./Modal.svelte";
+  import Gallery from "./Gallery.svelte";
+  import { selectedImage } from "./store";
+
+  selectedImage.subscribe((item) => {
+    document.body.classList.toggle("modal-open", Boolean(item));
+  });
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+  <h1>Art inspiring</h1>
+  <h2>Aurelia Bremer's Online Portfolio</h2>
+  <Gallery />
 </main>
+<Modal />
 
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
+  h1 {
+    text-transform: uppercase;
+    font-size: 4rem;
+    font-weight: 100;
+  }
 
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+  h1,
+  h2 {
+    margin: 0.5rem 0;
+  }
 </style>
