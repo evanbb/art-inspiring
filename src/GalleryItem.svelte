@@ -10,7 +10,7 @@
 
 <article on:click={itemClick}>
   <figure>
-    <img src={item.src} alt={item.alt} />
+    <img src={`/build/images/${item.img}.tb.jpg`} alt={item.alt} />
     <figcaption>{item.description}</figcaption>
   </figure>
 </article>

@@ -6,6 +6,14 @@
     selectedImage.set(null);
   }
 
+  const formats = [
+    ["fl", 99999999],
+    ["xl", 1366],
+    ["lg", 1024],
+    ["md", 767],
+    ["sm", 420],
+  ];
+
   function handleEscapeKey(event: KeyboardEvent) {
     if (event.key.toLowerCase() === "escape") {
       closeModal();
@@ -23,8 +31,13 @@
   <section>
     <button on:click={closeModal}>Close</button>
     <picture>
-      <source srcset={$selectedImage.src} />
-      <img src={$selectedImage.src} alt={$selectedImage.alt} />
+      {#each formats as format}
+        <source
+          srcset={`/build/images/${$selectedImage.img}.${format[0]}.jpg`}
+          media={`(max-width: ${format[1]}px)`}
+        />
+      {/each}
+      <img src={`/images/${$selectedImage.img}.jpg`} alt={$selectedImage.alt} />
     </picture>
   </section>
 {/if}
