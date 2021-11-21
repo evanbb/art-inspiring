@@ -7,11 +7,11 @@
   }
 
   const formats = [
-    ["fl", 99999999],
-    ["xl", 1366],
-    ["lg", 1024],
-    ["md", 767],
     ["sm", 420],
+    ["md", 767],
+    ["lg", 1024],
+    ["xl", 1366],
+    ["fl", Number.MAX_SAFE_INTEGER],
   ];
 
   function handleEscapeKey(event: KeyboardEvent) {
@@ -37,7 +37,10 @@
           media={`(max-width: ${format[1]}px)`}
         />
       {/each}
-      <img src={`/images/${$selectedImage.img}.jpg`} alt={$selectedImage.alt} />
+      <img
+        src={`/build/images/${$selectedImage.img}.tb.jpg`}
+        alt={$selectedImage.alt}
+      />
     </picture>
   </section>
 {/if}
