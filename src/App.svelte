@@ -10,7 +10,7 @@
 
 <main>
   <h1>Art inspiring</h1>
-  <h2>Aurelia Bremer's Online Portfolio</h2>
+  <h2>Aurelia Bremer's Online Art Portfolio</h2>
   <Gallery />
 </main>
 <Modal />
